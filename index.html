@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Sivadharshini</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fde4e4, #dcd6f7);
+            color: black;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating Bubbles */
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            width: 30px;
+            height: 30px;
+            background: rgba(190, 158, 255, 0.6); /* Light Violet */
+            border-radius: 50%;
+            animation: floatUp 8s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 0.7; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        /* Different Sizes and Positions for Bubbles */
+        .bubble:nth-child(1) { left: 5%; width: 20px; height: 20px; animation-duration: 6s; }
+        .bubble:nth-child(2) { left: 15%; width: 40px; height: 40px; animation-duration: 9s; }
+        .bubble:nth-child(3) { left: 30%; width: 25px; height: 25px; animation-duration: 7s; }
+        .bubble:nth-child(4) { left: 50%; width: 35px; height: 35px; animation-duration: 8s; }
+        .bubble:nth-child(5) { left: 65%; width: 30px; height: 30px; animation-duration: 10s; }
+        .bubble:nth-child(6) { left: 80%; width: 20px; height: 20px; animation-duration: 5s; }
+        .bubble:nth-child(7) { left: 90%; width: 50px; height: 50px; animation-duration: 7s; }
+
+        /* Blur Effect */
+        .blur {
+            filter: blur(8px);
+            pointer-events: none;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-size: 36px;
+            font-family: 'Great Vibes', cursive;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .ms-font {
+            font-family: "MS Sans Serif", "Microsoft Sans Serif", Geneva, sans-serif;
+            font-size: 18px;
+        }
+        .ai-quote {
+            font-family: "MS UI Gothic", sans-serif;
+            font-size: 19px;
+            font-weight: bold;
+            line-height: 1.4; /* Adjust this value for more or less spacing */
+        }
+        
+        
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .buttons button {
+            width: 140px;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            transform: translate(150px);
+        }
+
+        .buttons button:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Three-line (Hamburger) Menu */
+        .menu-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: black;
+        }
+
+        /* Contact Modal */
+        .contact-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            padding: 25px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            text-align: center;
+            display: none;
+            z-index: 1000;
+        }
+
+        .close-button {
+            background: salmon;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Fullscreen Resume */
+        .resume-fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .resume-fullscreen img {
+            max-width: 90%;
+            max-height: 95%;
+            border-radius: 10px;
+        }
+
+        .resume-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bubbles Background -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Hamburger Menu -->
+    <button class="menu-button" onclick="toggleContact()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="contact-modal">
+        <h2>Contact Me</h2>
+        <p><a href="https://linkedin.com/in/sivadharshini-n" target="_blank">LinkedIn</a></p>
+        <p><a href="https://github.com/sivadharshininandhakumar" target="_blank">GitHub</a></p>
+        <p>Email: sivadharshini816@gmail.com</p>
+        <p>phone:+91 9944882448</p>
+        <button class="close-button" onclick="toggleContact()">Close</button>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent">
+        <img src="images/mee.png" alt="Sivadharshini" class="profile-img">
+        <p>Hii! I'm</p>
+        <h1 class="title">Sivadharshini</h1>
+        <p class="subtitle">Web Developer | Exploring AI & Tech Innovation</p>
+        <p class="ai-quote">"I'm committed to exploring AI's vast potential and leveraging my skills<br>to drive innovation and growth in the tech industry."</p>
+        <br><p>"welcome to my portfolio!"</p>
+        <div class="buttons">
+            <button onclick="toggleResume()">View Resume</button>
+            <button onclick="window.location.href='projects.html'">Know More</button>
+        </div>
+    </div>
+
+    <!-- Resume Modal -->
+    <div class="resume-fullscreen" id="resumeModal">
+        <button class="resume-close" onclick="toggleResume()">Close</button>
+        <img src="images/resume.png" alt="Resume">
+    </div>
+    <script>
+        function toggleResume() {
+            let modal = document.getElementById('resumeModal');
+            let mainContent = document.getElementById('mainContent');
+    
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+                mainContent.classList.remove('blur');
+            } else {
+                modal.style.display = 'flex';
+                mainContent.classList.add('blur');
+            }
+        }
+    
+        function toggleContact() {
+            let modal = document.getElementById("contactModal");
+            let mainContent = document.getElementById("mainContent");
+    
+            if (modal.style.display === "block") {
+                modal.style.display = "none";
+                mainContent.classList.remove("blur");
+            } else {
+                modal.style.display = "block";
+                mainContent.classList.add("blur");
+            }
+        }
+    </script>
+    
+
+</body>
+</html>
