@@ -29,6 +29,9 @@
             height: 100vh;
             overflow: hidden;
             position: relative;
+            transform: scale(1.1); /* Zoom effect */
+            transform-origin: center top; /* Keeps scaling centered and moves content up */
+            
         }
 
         /* Floating Bubbles */
@@ -98,21 +101,19 @@
             font-family: "MS Sans Serif", "Microsoft Sans Serif", Geneva, sans-serif;
             font-size: 18px;
         }
-      .ai-quote {
-    font-family: "MS UI Gothic", sans-serif;
-    font-size: 19px;
-    font-weight: bold;
-    line-height: 1.4;
-    text-align: center;
-    word-wrap: break-word;
-    white-space: normal;
-    
-    /* Force font rendering consistency */
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-}
+        
+        .ai-quote {
+            font-family: "MS UI Gothic", sans-serif;
+            font-size: 19px;
+            font-weight: bold;
+            line-height: 1.4;
+            text-align: center;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        
+        
 
         .buttons {
             display: flex;
