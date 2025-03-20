@@ -98,7 +98,7 @@
             font-family: "MS Sans Serif", "Microsoft Sans Serif", Geneva, sans-serif;
             font-size: 18px;
         }
-       .ai-quote {
+      .ai-quote {
     font-family: "MS UI Gothic", sans-serif;
     font-size: 19px;
     font-weight: bold;
@@ -106,8 +106,13 @@
     text-align: center;
     word-wrap: break-word;
     white-space: normal;
+    
+    /* Force font rendering consistency */
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
-
 
         .buttons {
             display: flex;
